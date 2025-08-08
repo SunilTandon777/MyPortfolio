@@ -1,3 +1,159 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Theme background */
+  background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #be185d 100%);
+  min-height: 100vh;
+  /* Improve scroll performance */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: auto;
+  /* Remove any default white backgrounds */
+  background-color: transparent;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Performance optimizations for smooth scrolling */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove any default white backgrounds from all elements */
+html, body, #root {
+  background: transparent;
+}
+
+/* Ensure the root element takes full height */
+#root {
+  min-height: 100vh;
+  background: transparent;
+}
+
+/* Optimize animations for better performance */
+.motion-safe\:animate-fade-in {
+  will-change: opacity, transform;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Improve backdrop-blur performance */
+.backdrop-blur-xl {
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  will-change: backdrop-filter;
+}
+
+.backdrop-blur-2xl {
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  will-change: backdrop-filter;
+}
+
+/* Optimize glass effects */
+.glass-effect {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Elastic scroll behavior */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: auto;
+}
+
+/* Ensure no white backgrounds on any elements */
+* {
+  background-color: transparent;
+}
+
+/* Specific overrides for any elements that might have white backgrounds */
+div, section, article, aside, header, footer, main {
+  background-color: transparent;
+}
+
+/* Ensure backdrop-blur elements work properly */
+.backdrop-blur-xl,
+.backdrop-blur-2xl {
+  background-color: transparent;
+}
+
+/* Ensure the main container covers the full viewport */
+.min-h-screen {
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Fix any potential white backgrounds from React's default styles */
+.react-app {
+  background: transparent;
+}
+
+/* Ensure smooth elastic scrolling */
+html, body {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: auto;
+  background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #be185d 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Fix text blurring on focus */
+*:focus {
+  outline: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve text clarity */
+.text-slate-100,
+.text-slate-200,
+.text-slate-300,
+.text-slate-400,
+.text-white {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce backdrop blur intensity for better text clarity */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(16px);
+}
+
+.backdrop-blur-2xl {
+  backdrop-filter: blur(24px);
+}
+
+/* Ensure glass elements don't interfere with text */
+.glass-effect,
+.backdrop-blur-xl,
+.backdrop-blur-2xl {
+  isolation: isolate;
+}
